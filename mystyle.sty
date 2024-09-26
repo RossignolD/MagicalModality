@@ -1,0 +1,55 @@
+\ProvidesPackage{mystyle}
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{everyshi}
+\usepackage{eso-pic}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage[outline]{contour}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[printsolution=false, starpoints=true]{exercises}
+\usepackage{blindtext}
+\usepackage{epigraph}
+\usepackage{qtree}
+\usepackage{array}
+\setlength{\epigraphwidth}{0.48\textwidth}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{outlines}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=violet,
+    urlcolor=teal,
+    linktoc=section}
+\hypersetup{final=true}
+\usepackage[pages=some]{background}
+
+\backgroundsetup{
+scale=1,
+color=black,
+angle=0,
+contents={%
+  \includesvg[width=\paperwidth,height=\paperheight]{coveridea7}
+  }%
+}
+\usepackage[indexonlyfirst]{glossaries}
+\renewcommand{\qedsymbol}{Q.E.D.}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\square}{\logicbox}
+\renewcommand{\lozenge}{\logicdiamond}
+\newcommand*{\logicnot}{\mathord{\sim}}
+\newcommand*{\chili}{\textcolor{red}{\faPepperHot}}
+
+\newcommand*{\NOT}{\, \mathrm{NOT} \;}
+\newcommand*{\AND}{\mathord{\;\mathrm{AND}\;}}
