@@ -7,3 +7,118 @@ to think in terms of Kripke models. I suppose that I am more of a Kripke model p
 being a model theorist myself. You will see that the two objects roughly correspond to a syntactic (proof theoretic) and
 semantic (model theoretic) position, respectively. I will leave that matter of taste to you.
 
+\setcounter{section}{-1}
+
+\section{The bare definitions}
+
+A \emph{Kripke frame} (also known as a relational frame, among other names) is an ordered pair $\mathfrak{F} = (W, R)$ that consists of
+a set of possible worlds $W$ and an accessibility relation between them denoted $R$. If we are discussing multiple different
+frames ($\mathfrak{F}$ and $\mathfrak{G}$ perhaps), we might choose to distinguish their sets of possible worlds as $W^\mathfrak{F}$
+and $W^\mathfrak{G}$ respectively. And similarly, for their accessibility relations, we may denote the two relations as
+$R^{\mathfrak{F}}$ and $R^{\mathfrak{G}}$.
+
+A \emph{Kripke model} (also known as a relational model, possible--worlds model, among other names) is an ordered trirple
+$\mathfrak{M} = (W, R, V)$ that consists of a set of possible worlds $W$, an accessibility relation $R$, and a valuation function
+$V$. The valuation assigns propositions such as $P$ truth values (either true or false) in worlds such as $\alpha$. Another way
+of thinking about this is that $V$ tells which possible worlds have which propositions true in them, therefore assigning propositions
+to worlds or sets of worlds. Another way to think about Kripke models is that they are Kripke frames that come with
+a truth function $V$. In fact, the defintion that I was taught was precisely that: a Kripke model is an ordered pair $ \mathfrak{M}=
+(\mathfrak{F}, V)$ where $\mathfrak{F}$ is a Kripke frame and $V$ is a valuation function.
+
+\subsection*{Some quick notation notes}
+
+
+The accessibility relation $R$ tells us how we can ``get from'' one possible world in the Kripke frame to another. If 
+$(\alpha, \beta) \in R$, then we can say that ``$\alpha$ sees $\beta$'', or ``we can reach $\beta$ from $\alpha$''. The accessibility
+relation for a Kripke frame is usually written $R(\alpha, \beta)$ or as simply $R \alpha \beta$.
+
+When a proposition $P$ is true in a certain possible world $\alpha$ in a Kripke model, we say that ``$P$ is true at $\alpha$'',
+``$\alpha$ satisfies $P$'', or, in certain texts, ``$\alpha$ forces $P$''. These all mean the same thing. They are written
+with the so--called \emph{modal turnstile} symbol $\Vdash$. The symbol is an infix, so its correct usage is something like
+$\alpha \Vdash P$ in the case that $\alpha$ satisfies $P$. Some people like to use the \emph{semantic turnstile} symbol 
+$\models$ for this, reflecting the fact that we are asserting something about the semantics of a proposition. I think that the
+distinction between satisfaction in a Kripke model and satisfaction in general is important, so I will stay away from overloading
+the $\models$ symbol. Similarly to the ``factions'' that have arisen over whether the more primitive object is the Kripke
+frame or model, there are ``factions'' that ``argue'' about whether to use $\Vdash$ or $\models$ for modal satisfaction.
+Ultimately, this is a matter of taste.
+
+\section{A fast overview of the semantics of the symbols}
+You've already seen this in Chapter 2 of \emph{Modal Logic for Open Minds} as Definition 2.2.2, but I will give it here anyway
+so that you don't have to go hunting for it the next time you need it. These are the truth--definitions of the operators
+as they behave in Kripke models. So here we go! For a Kripke model $\mathfrak{M}$ and a possible world $\alpha$ of that 
+Kripke model, we say that \dots
+\begin{itemize}
+    \item $\alpha \Vdash P \IFF$ the valuation operator $V$ assigns True to $P$. 
+    \item $\alpha \Vdash \logicnot \phi \IFF \NOT (\alpha \Vdash \phi)$.
+    \item $\alpha \Vdash \phi \wedge \psi \IFF \alpha \Vdash \phi \AND \alpha \Vdash \psi$.
+    \item $\alpha \Vdash \logicdiamond \phi \IFF \bigvee \beta$ such that $R \alpha \beta$, $\beta \Vdash \phi$.
+    \item $\alpha \Vdash \logicbox \phi \IFF \bigwedge \beta$ such that $R \alpha \beta$, $\beta \Vdash \phi$.
+\end{itemize}
+
+The rest of the logical connectives' semantics can be deduced from these, as $\logicnot$ and $\wedge$ are a functionally 
+complete set. I will leave it as an exercise for you to complete if you desire.
+
+\section{Modal axioms, what are they good for?}
+Modal axioms are formulae in the language of modal logic that are true for Kripke frames that have a particular structure
+to their accessibility relation. For example, in every Kripke frame that has a reflexive accessibility relation,
+it is the case that the Kripke model has the statement $\logicbox \phi \rightarrow \phi$ true. And the converse of this 
+statement is true as well: Every Kripke frame for which the statement $\logicbox \phi \rightarrow \phi$ holds at every possible
+world has a reflexive accessibility relation. We can prove this using a picture. 
+
+We will proceed by contradiction. Assume for the sake of contradiction that the axiom $\logicbox \phi \rightarrow \phi$
+is false in some possible world $\alpha$ in our Kripke frame $\mathfrak{F}$. We will show this as the following
+(the large bubble is $\alpha$):
+
+\begin{center}
+    \includesvg{Tproof1.svg}
+\end{center}
+
+We will use the principle of classical logic that $\logicnot(\phi \rightarrow \psi) \leftrightarrow \phi \wedge \logicnot \psi$
+to expand the assumption.
+
+\begin{center}
+    \includesvg{Tproof2.svg}
+\end{center}
+
+Separating the two conjuncts and applying the semantics of the box symbol means that every possible world that $\alpha$ can see
+satisfies $\phi$. 
+
+\begin{center}
+    \includesvg{Tproof3.svg}
+\end{center}
+
+But if our accessibility relation is reflexive, then every possible world can see itself. Then $\phi$ must be true in $\alpha$
+for this reason. 
+
+\begin{center}
+    \includesvg{Tproof4.svg}
+\end{center}
+
+A contradiction arises from the fact that we already asserted that $\logicnot \phi$ is true in this world
+when we separated the two conjuncts. Thus we cannot have a Kripke frame that contains this statement and is not reflexive.
+
+\begin{center}
+    \includesvg{Tproof5.svg}
+\end{center}
+
+I will fully accept this kind of ``picture proof''
+from you as a demonstration of these types of theorems, most notably because proving these things formally (in a natural
+deduction system perhaps), is not the goal of this project. I have written formal proofs of fairly simple correspondences of 
+this type that involved 5 layers of nested subderivations, which I do not believe would give you more enlightenment into 
+the axioms than the ``picture proofs''.
+
+You may have noticed that we used the reasoning principle of \emph{modus ponens} in this proof. Without this essential piece
+of reasoning, logic has a hard time getting started. So we build this into every Kripke frame through the following axiom:
+$\logicbox(\phi \rightarrow \psi) \rightarrow (\logicbox \phi \rightarrow \logicbox \psi$. This axiom is so foundational,
+it was given the initial \textbf{K} in honor of Kripke. Nearly all modal axioms have initials. The one that we just discussed
+and proved a theorem about is called \textbf{T}. We will continue to explore modal axioms and their relation to Kripke frames
+and models as a theme in this project.
+
+\section{Looking into next week}
+For next week, I would like you to hear van Benthem's take on the ``landscape of modal logics'' by reading Chapter 8 in 
+the book. Also, if you have gotten down to here, you should have read through my notes here thoroughly. I invite you to 
+attempt his Exericse 2 in that chapter. And just for fun, becuase I think that you should do this to get acquainted with 
+the way that modal axioms play with the accessibility relations on their Kripke frames, you should go to the Wikipedia
+page for the Kripke semantics and try to prove at least two of the correspondences shown in the table \emph{Common
+modal axiom schemata}. Don't worry about reading the entire page and understanding it. The correspondences are what we will
+be building upon in the course of the project.
