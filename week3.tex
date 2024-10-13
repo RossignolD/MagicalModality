@@ -1,4 +1,84 @@
-\chapter[Modal logic's relationship with First-order logic]{Lost in translation: Modal logic's relationship with First-order logic}
+\chapter[Modal logic's relationship with First-order logic]{Lost (and found) in translation: Modal logic's relationship with First-order logic}
+
+Modal logic, as you might have suspected, is a fragment of First--order logic. The immediate observation may be that they share
+all of the propositional connectives, and additonally, the accessibility relation adds a relation, requiring the power of 
+First--order logic to express this. But there lies ``something deeply hidden'', as one of my mentor figures in undergrad would
+have expressed it. The last week on bisimulation should have given you a feeling for this kind of relationship between
+Kripke models. In the remarks following the final theorem of my notes for you, about modal equivalence and bisimulation, I
+suggested that we gave something up in order to have the power of this theorem. What was this exactly? We gained much,
+but we also lost some formulae along the way as we developed modal logic. Which formulae are we able to keep? They are
+precisely the ones that are invariant under bisimulation. In these notes, we will explain what this means.
 
 \setcounter{section}{-1}
 
+\section{Standard translation of modal formulae}
+We must first discuss what it means to translate a modal formula into a first--order one. This means that we are completely
+eliminating $\logicbox$ and $\logicdiamond$ from our formula, and turning propostional letters $P$, $Q$ and the like into
+single--place predicates that we will name things like $Px$ and $Qx$. There is a procedure for producing this kind of first--order
+formula known as ``standard translation''. I will define it inductively, as I did with the definitions of the connectives and
+modal operators a few weeks ago.
+
+\begin{enumerate}
+    \item Translate each propositional letter into its own single--place predicate. As mentioned above, this looks like
+    turning things like $P$ and $Q$ into $Px$ and $Qx$.
+    \item Translate $\perp$ into $x \neq x$.
+    \item Keep in mind that statements of the form $\logicnot \phi$ can be turned into $\phi \rightarrow \perp$, and translate
+    $\logicnot \phi$ into the negation of the standard translation of $\phi$.
+    \item Translate $\phi \vee \psi$ into the disjunction of the standard translations of the disjuncts $\phi$ and $\psi$
+    \item Translate $\logicbox \phi$ into $\forall y (Rxy \rightarrow \Phi)$, where $\Phi$ is the standard translation of $\phi$.
+    \item Translate $\logicdiamond \phi$ into $\exists y (Rxy \wedge \Phi)$ where $\Phi$ is the standard translation of $\phi$. 
+\end{enumerate}
+
+After perfoming this procedure, what has happened is you have turned a modal formula into a first--order one. What did this get us?
+It shows us which first--order formulae are secretly modal formulae. But one cannot always go backwards, turning all
+first--order formulae into modal ones. Which are the ones that work? We will now introduce the concept of \emph{invariance
+under bisimulation}.
+
+\section{Invariance under bisimulation}
+Invariance under bisimulation for a formula $\phi$ means that if two pointed Kripke models $(\mathfrak{M}, w)$ and $(\mathfrak{N}, v)$
+are bisimilar, then $w \Vdash \phi$ if and only if $v \Vdash \phi$. It is an interesting procedure to prove that all
+modal formulae are invariant under bisimulation, and I will send a presentation that contains this result if anyone is interested.
+What is more interesting is the first--order formulae that are invariant under bisimulation. 
+
+\section{The Big One: Van Benthem's Theorem}
+This is widely considered (at least amongst the modal logicians I have encountered) to be the most beautiful theorem in all of
+modal logic. My modal logic lecturer in Amsterdam told us that it was so ground--breaking when first proven and so influential
+that no one ever attempted to prove it again after van Benthem did in his Ph.D. thesis. This was the first time such a result
+had ever appeared in modal logic. (Additionally, this document contains the first recoreded reference to bisimuation between
+Kripke models.) What van Benthem proved set the stage for the next half century or more for modal logicians. Here it is:
+
+\bigskip
+
+\noindent\fbox{
+    \parbox{\textwidth}{
+        \bigskip
+       \textbf{Theorem (van Benthem, 1976)} A first--order formula $\phi(x)$ is invariant under bismulation if and only if it is equivalent to the standard translation
+       of a modal formula.
+       \bigskip
+
+    }  
+}
+\bigskip
+
+I will not be proving this for you, as its proof is beautful (or so I have been told), but requires much study of things that
+are outside the scope of this project. The proof is given in Blackburn, de Rijke, and Venema's book \emph{Modal Logic}. The
+arguments are clever and the method takes a while to get your head around. A note: these formulae are not necessarily the
+ones that define the correspondences between accessibility relations and the axioms. This can be seen in the chart
+on the Wikipedia page for the Kripke semantics, where some modal axioms have accessibility relations whose defining property
+is not a first--order property. For example, the McKinsey axiom $\logicbox \logicdiamond \phi \rightarrow \logicdiamond \logicbox \phi$
+produces a Kripke model whose accessibility relation's defining property is a secodn--order formula.
+
+What we do get from van Benthem's theorem is a new way to look at the Kripke semantics. We see that first--order formulae that
+express the relatonships between possible worlds that the Kripke semantics give us precisely the modal formualae that 
+should express them.
+
+\section{Headed into next week}
+As usual, if you have gotten this far, you have nearly completed your reading for the week.
+In this case, you have completed it. I have not assigned you reading from \emph{Modal Logic for Open Minds} this week
+because I do not think that we have covered the topics that he finds are prerequisite to expressing the above theorem.
+Translate your favorite 3 modal axioms into their standard translation. I will prepare some examples for next week.
+Also, please begin to think about which of the modal logic applications you would like to explore. The choices that I am most
+familiar with are the linguistic and the philosophical applications. Van Benthem covers many, many more in the book. Please
+feel free to look at the table of contents in the book and explore the first paragraph of chapters that contain applications
+you are interested in. I will give a ``speed--dating'' approach to the applications next week, and conclude by asking you
+which of the topics you would like to explore more deeply. 
