@@ -1,0 +1,75 @@
+\chapter[Two equivalence notions]{Finding common ground: Modal bisimulation and modal equivalence}
+
+For the most part, I am going to hand this topic off to van Benthem, as he can explain it with far better examples than I can come
+up with on my own. I enjoyed this section of my modal logic course in Amsterdam more than nearly anything else, if only
+for the sense of humor that my lecturer brought to the topic. Looking back, I can't quite recall what was so amusing about this
+topic, but it still has that sort of nostalgic charm that one feels about subjects about which one has fond memories associated.
+
+\setcounter{section}{-1}
+
+\section{Definition of modal bisimulation}
+Modal bisimulation, in the words of van Benthem, requires ``harmony'' between two Kripke models in a way that will be clear from
+the definition. My lecturer called the two conditions for the interactions of the bisimulation `back' and `forth' which I think
+is appropriate. A bisimulation is a two---place relation between two Kripke models $\mathfrak{M}$ and $\mathfrak{N}$ such that
+two special conditions hold.
+The two conditions are the following:
+
+\begin{enumerate}
+    \item For possible worlds $w$ and $w'$, there exists a bisimulation $E$ between $\mathfrak{M}=(W, R, V)$ and $\mathfrak{N}=(W', R', V')$ if when $Eww'$,
+    then $w$ and $w'$ satisfy the same propositional letters.
+    \item If $Eww'$ and $Rwv$, then there is some $v' \in \mathfrak{N}$ such that $Evv'$ and $R'w'v'$. The converse of this must hold 
+    as well: if $Eww'$ and $R'w'v'$, then there exists sme $v' \in \mathfrak{M}$ so that $Evv'$ and $Rwv$. 
+\end{enumerate}
+
+The first of these condition is called ``Harmony'' by van Benthem, and the second is the ``Back---and--Forth' condition. The 
+first part, potentially confusingly, is the `Forth' condition, while the converse of it is the `Back' condition. The diagram 
+the textbook gives makes these names a bit more clear, I think. 
+
+\setcounter{subsection}{-1}
+
+\subsection{Notation for bisimulations}
+The bisimulation itself, the relation between sets of possible worlds in $\mathfrak{M}$ and $\mathfrak{N}$, is usually given a 
+capital letter name, like $E$. It can be written as either a prefix (as I have done to keep consistent with the way that I
+have been writing relations in these notes) or as an infix (as van Benthem does in our book). Essentially, it is relation
+$E \subseteq W \times W'$. In the case that we are saying that two Kripke models are bisimilar (the adjective form of the word
+\emph{bisimulation}), then we write $\mathfrak{M} \leftrightarroweq \mathfrak{N}$
+
+\section{Another notion of equivalence}
+Bisimulation is powerful because it gives us a notion of equivalence of Kripke models. We can define another notion of equivalence
+between Kripke models, which is called \emph{modal equivalence}. The big idea behind this is the idea of $\tau$--theories.
+A $\tau$--theory of a possible world $w$ in a Kripke model $\mathfrak{M}$ the set of all $\tau$--formulae that are true in $w$.
+In our case, $\tau$ is the set of symbols in the modal logic we are working in, which is the system set out by van Benthem
+on the first page of Chapter 2. I use the general symbol $\tau$ here to represent the fact that construction works for any
+set of modal symbols, including those that fall outside of the $\logicbox$ and $\logicdiamond$.
+
+Two worlds $w$ and $w'$ in two Kripke models $\mathfrak{M}$ and $\mathfrak{N}$ are modally equivalent if they have the same 
+$\tau$--theories. There also an idea that two Kripke models can be modally equivalent, and this in the case that the $\tau$---theories
+of the \emph{models} are identical. This requires the set of formulae satisfied in all states of $\mathfrak{M}$ to be
+the same as the set of all formulae satisfied in $\mathfrak{N}$. When there is a modal equivalence between two worlds,
+we write that $w \leftrightsquigarrow w'$. Analogously, we write a modal equivalence between Kripke models as 
+$\mathfrak{M} \leftrightsquigarrow  \mathfrak{N}$.
+
+\section{Analogies between analogies}
+We now come to the lead---up to one of the big theorems of the project. That theorem, known as van Benthem's theorem, will wait
+for a few more weeks. But I will give you a taste of it with the following lead--up theorem:
+
+\bigskip
+
+Let $\mathfrak{M}=(W, R, V)$ and $\mathfrak{N} = (W', R', V')$ be Kripke models under a set of modalities $\tau$. Then for every $w
+\in W$ and every $w' \in W'$, if $w \leftrightarroweq w'$, then $w \leftrightsquigarrow w'$. The proof is by symbolic
+induction on modal formulae, and relies \emph{precisely} on each part of the definition of bisimulation.
+
+\bigskip
+
+This is powerful indeed! It gives us a characterisation of modal formulae, and also hints to us that bisimulation may
+be giving us more than we expected. What did we sell our souls for in exchange for this epic result? That question will be
+answered by the Sahlqvist--van Benthem Algorithm and van Benthem's theorem, both of which will reveal noth the expressivity and 
+limitations of modal logic in the context of first--order logic.
+
+\section{For the week ahead}
+If you've made it this far in the notes, you have a basic understanding of what it means for possible worlds and Kripke
+models to be bisimilar and for them to be modally equivalent. I would like you to read van Benthem's section on bisimulation,
+which are contained within section 3.2 of Chapter 3. I think that with this knowledge, you should feel comfortable with
+Exercises 1(a) and 1(b) that come at the end of the chapter. Feel free to create your own Kripke models and find (or fail to find)
+bisimulations between them in order to get a good grasp of the concept. For fun, you may attempt to prove the above theorem
+if you feel comfortable with symbolic induction.

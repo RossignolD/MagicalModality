@@ -1,0 +1,98 @@
+\chapter{Our first meeting all together}
+
+\setcounter{section}{-1}
+\section{Introduction of myself}
+My name is Mei Rose. 
+My background in Formal Logic consists mostly of undergraduate courses in Philosophical Logic, but I studied Mathematical Logic at UW and 
+at the Universiteit van Amsterdam, for two and one semester respectively. I worked at a software development group in my undergraduate university 
+and wrote a proof-checker in JavaScript. Modal logic has been a passion of mine since taking a course on the Philosophy of Mathematics
+and seeing its history and uses since the times of Leibniz and earlier to puzzle about statements about possible worlds. My personal 
+logic and mathematics heroes of history are David Hilbert and Amalie Emmy Noether. In recent history, I have looked up to Saul Aaron Kripke, 
+who died in 2022 and left a wave of controversy in his wake that we will hopefully have time to discuss during this project. And alive today, 
+inspiring me to be a Logician, is J. F. A. K. (Johan) van Benthem, the only person I know of who holds permanent research positions 
+at three different universities at the same time.
+
+\section{Introductions of students}
+I am interested to know how your journey through mathematics and logic has been going so far. 
+All I know about you is that the committee recommended you into the project, what courses you are enrolled in, 
+and which courses you have taken that are relevant to the reading group. 
+\begin{itemize}
+    \item Please tell me about your favorite mathematical experiences. What made them special or unique?
+    \item What sorts of things do you like to do outside of your coursework? Does mathematics or logic ever factor into those activities? 
+    \item Who inspires you in history, or the present day?
+\end{itemize}
+
+\section{Overview and goals}
+As stated in the project description, I aim for us to discuss many aspects of the so-called modal logic by the end of the semester. 
+After establishing some groundwork in Kripke frames and models and a brief discussion of modal bisimulation, I plan to begin tackling 
+the applications of modal logic. This is where your interests come in. I have the most experience working with modal logic 
+applications in philosophy and linguistics, but there exist many more, such as information/preference theory, game theory, and more. 
+Modal logic also touches more classical logic topics such as provability and model theory, and we can look into those if you are interested. 
+(The ``magical'' [according to van Benthem] modal proof of Second Incompleteness is what gave this project its name.)
+
+I would like to conclude the project with two connections between modal logic and first-order logic. 
+These two connections are called van Benthem's Theorem and the Salqvist-van Benthem Algorithm. 
+Each gives a slightly different viewpoint on how powerful modal logic is compared to first-order logic.
+
+\section{Propositional and First-order logic reminders}
+
+I will be assuming throughout this project that you are familiar with the following logical symbols from propositional logic: $\logicnot$ (logical negation,
+sometimes written as $\neg$), $\wedge$ (logical conjunction), $\vee$ (logical disjunction), $\rightarrow$ (material conditional), and $\leftrightarrow$ 
+(biconditional).This means that you know their truth tables, and how to “read” them in a formula (e.g., $P \wedge Q$
+gets read as ``$P$ and $Q$''.)
+
+As for the first-order logic I expect you to be familiar with, $\forall$ and $\exists$ are the starting point. 
+Being able to read these symbols as ``for all'' and ``there exists/there is at least one'' is important, as is being able to write and interpret statements with
+relation or function symbols like $R(x,y)$ or $F(x, y, z)$. When I say that R is a two-place relation between a 
+set and itself (as most of our relations will be in this project), I want you to be able to picture a 
+diagram like the one below. The arrows show the relations. For example, we can say that $R(z,x)$ or that $(z,x) \in R$.
+
+\begin{center}  
+    \includesvg[width=0.4\textwidth]{relation0.svg} 
+\end{center}
+
+We all have preferences for what symbols and variables we use as Logicians. 
+For example, I prefer to call propositions $P$, $Q$, etc. and use the $\logicnot$ symbol for the logical negation. 
+I will try to accommodate your preferences, but know that I will fall back on mine if I forget. 
+Van Benthem notably believes, or at least states, that you should be able to change notation for these sorts 
+of things as one changes clothes. 
+
+Additionally, when we begin discussing things where the object language and the m
+etalanguage become important distinctions, my preferred metalanguage symbols for 
+the above-referenced propositional logic connectives are: NOT for the logical negation, AND for 
+the logical conjunction, OR for the logical disjunction, ONLY IF for the material conditional, and IFF 
+for the biconditional. These last two are unlikely to be seen much, but I thought that I should establish them. 
+For the metalanguage universal quantifier (equivalent to $\forall$) I like to use symbol $\bigwedge$, and for the 
+metalanguage existential quantifier (equivalent to $\exists$) I like to use $\bigvee$. These should be distinguished
+from the object language $\wedge$ and $\vee$ that we will be using for the conjunction and disjunction, respectively.
+
+\section{A few new things}
+
+I mentioned above that there is a distinction between what is called the object language and the metalanguage. 
+The object language is the (logical, though can be natural) language we are currently using. 
+The majority of the time this will be the language of modal logic and its associated symbols. 
+The metalanguage is the (same caveat) language we use to talk about the object language. 
+A natural language example is the following, taken from A. Tarski: “Schnee ist weiss” if and only if snow is white. 
+The object language, set off here in quotation marks, is German, and the metalanguage, 
+left outside the quotation marks, is English. The philosophy people will notice that this is similar, 
+but not quite the same, as the \emph{de dicto}/\emph{de re} distinction.
+
+The distinction will come into play when we want to say things about modal logic, using the language of first-order logic. 
+For example, when we define what it means for a formula of the form $\phi \wedge \psi$ to be satisfied in a possible world 
+$\alpha$, we will make a statement like: ``''$\alpha \Vdash \phi \wedge \psi \IFF \alpha \Vdash \phi \AND \alpha \Vdash \psi$.''
+The logical conjunction in the part of this sentence before (and not including) IFF is in the object 
+language of modal logic. But the logical conjunction in the part of the sentence after (and including) IFF 
+is in the metalanguage of first-order logic. Essentially, this allows us to talk about logic using logic, and keep clear when we are doing which. 
+We need to be really careful about this distinction. Please prompt me if I am not being clear about when we 
+are using the object language and when we are using the metalanguage.
+
+\section{Before the next time we meet}
+Please obtain the book Modal Logic for Open Minds by van Benthem. 
+If you are able to get it before the next meeting, please read the first chapter, 
+``A whirlwind history, and changes in perspective'' and the second chapter, ``Basic language and semantics''. 
+Section 2.4 will be optional, but do feel free to read it and let me know if you want the project to look more closely at 
+``game semantics'' like this. I recommend an attempt of Exercises 1(a), 1(b), 2(a), 3(a), and 3(b) 
+to cement your understanding of the reading. We will discuss these during the next meeting. 
+If you choose to read Section 2.4, Exercises 2(b) and 2(c) may help your understanding.
+
+

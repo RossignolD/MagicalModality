@@ -1,0 +1,104 @@
+\chapter[A taste of some applications of modal logic]{Speed--dating for applications of modal logic}
+
+Modal logic finds its way into many fields of study, from philosophy to computer science, to mathematics,
+and beyond. I will quickly summarise these applications. I will put an asterisk next
+to sections on applications that I have personally seen. Please look at all of the
+applications I present. I will let each of you choose an application that excites or
+interests you.
+
+\setcounter{section}{-1}
+
+\section{Deontic modal logic*: the logic of preference and responibility}
+Deontic modal logic comes from the idea of trying to express ideas from the field of ethics and aesthetics
+in the language of logic. Asking questions like, ``If something is obligatory, is it necessarily permissible?''
+is core to this branch of modal logic. This type of ``ought implies can'' statement has been analyzed
+throughout the history of philosophy, most notably by Kant. It has only been with the last century that modal 
+logic has been used to attempt to give meaning to these statements in formal logical frameworks.
+
+Often, the box and diamond symbols are replaced with $O$ and $P$ (standing for \emph{obligatory} and
+\emph{permissible}, respectively.) In these forms, the accessibility relation in a Kripke frame 
+or model is interpreted as saying that if $\alpha$ and $\beta$ are possible worlds that have $R \alpha \beta$,
+then $\beta$ is \emph{acceptable} to $\alpha$ IFF all obligations fulfilled by $\alpha$ are fulfilled
+in $\beta$. Thus, this logic has the axiom system known as \textbf{KD}, sometimes called \textbf{D} 
+(because the \textbf{K} axiom is assumed to be true in all modal logic systems of axioms).
+
+Deontic logic and its axiom \textbf{D}, are named from the Greek word \emph{d\'eon}, meaning ``that thing
+that is proper.''
+
+\section{Epistemic logic: what can we say if we don't know all the facts?}
+
+Epistemic logic concerns itself with what we know and how we come to know those things. For example, if it is the case that Alice knows
+something, is it the case that she knows that she knows it? If this is the case, it would be written in the language of modal logic as
+$\logicbox_A \phi \rightarrow \logicbox_A \logicbox_A \phi$, where the symbol $\logicbox_x \phi$ is read as ``$x$ knows $\phi$''. The diamond
+symbol $\logicdiamond_x \phi$ is sometimes interpreted as ``$\phi$ is consistent with $x$'s knowledge'. There are other possible interpretations.
+
+Some logicians like to add another pair of operators into the mix that represent belief and consistency with belief. These logicians are likely
+to write $K_x \phi$ for the $\logicbox_x$ symbol, and use the duality of the operators to define the $\logicdiamond_x$ symbol as $\logicnot K_x
+\logicnot \phi$. The operators for belief then look like $B_x \phi$ for the idea that $x$ believes that $\phi$, and $\logicnot B_x \logicnot \phi$,
+for the dual in an analogous fashion. The ways that these modalities interact is the interesting part. This is clear from the fact that
+by the nature of knowledge and belief that most other philosophers assert, any Kripke model that represents knowledge and belief must bear the
+axiom system \textbf{S5}, which comes with the axioms \textbf{K}, \textbf{T}, and \textbf{4} and \textbf{B}. Since this axiom set produces an
+accessibility relation that is an equivalence relation, there is much to be said here about what exactly the accessibility of one world to another
+represents. 
+
+Epistemic logic gets its name from the same Greek word as epistemology: \emph{epithasthai} meaning ``to know'' turned into a noun, \emph{epist\=em\=e},
+meaning ``knowledge''.
+
+\section{Information dynamics: when we don't know what everyone knows}
+
+Information dynamics, a favorite topic of van Benthem, concerns how knowledge is transferred between groups or individuals. The classic logic
+riddles about people wearing different colored hats can be solved using the types of Kripke models built by logicians who study information
+dynamics. Similarly, the puzzle of ``Cheryl's birthday'' that was viral on the internet once, can be solved in this way. One of the prominent
+logical systems used to model this type of logic is the Public Announcement Logic (PAL). If I say to Alice and Bob, ``I like to eat chocolate
+ice cream after dinner,'' I likely said this not knowing what the ``state''of your knowledge of my ice cream preferences. But now, I can make some
+definitive and complex epistemic statments like $\logicbox_{Mei} \logicbox_{Alice} \phi$. I can even say something like $\logicbox_{Mei} \logicbox_{Alice}
+\logicbox_{Bob} \phi$. These statements, iterated through each other into the limit, seem to capture the idea of ``common knowledge''. 
+
+After the PAL had been around sufficiently long in the information dynamics community, it found itself a generalization: the Dynamic Epistemic
+Logic (DEL). The DEL can express all of the power of the PAL, but allows updates to the Kripke models over time as more knowledge and individuals
+are added. It can also be used to model scenarios where individuals are aware that their beliefs can be false.
+
+\section{Modal logic and linguistics*: how do natural languages capture our ideas about necessity?}
+
+This application lies somewhere between all of the others above and the usual translation of the box and diamond. The linguistic questions that are
+raised by modal logic cut accross the different philosophical topics above and into the heart of ``What does it mean for something to be necessary
+or possible?'' Another question is, ``How do languages express these ideas, and what subtleties are there?'' An example from English is the
+following: in certain regional varieties of English, the sentence ``I might could come to dinner tomorrow.'' is perfectly valid. A speaker
+of this variety of English would tell you that it means ``It is possible that I will come to dinner tomorrow.'' So what is the semantic purpose
+of the second modal word here? Is it possible to interpret this type of shift of meaning in a Kripke frame?
+
+Other questions involve the subtlety of ``should'' vs. ``must''. I always got myself in trouble in German class because I couldn't distinguish
+when to say \emph{Ich muss} and when to say \emph{Ich sollte}. The two meanings are ``I must'' and ``I should'', respectively. These both seem
+as though the $\logicbox$ symbol will be used. But does this alone capture what the difference between these words? 
+
+\section{Modal logic and computer science: what does a modal logic fomula mean to a computer?}
+An application of modal logic that has been becoming popular in the software development communities, known as formal verification, is based
+around using formal proofs in logical systems to ``prove'' that the software is free of all bugs. The fact that this can be done at all
+is owed to the Curry--Howard correspondence. A common way to do this type of proof is to constrain programs to those that can be represented
+by modal formulae. The catch here is that a more complicated but robust framework for modal logic must be used. Often this is the Propositional
+Dyanmic Logic (PDL).
+
+The advantage of the PDL is that it has both \emph{atomic formualae} and \emph{atomic programs}. This allows us to discuss states of programs
+as well as outputs. A modal symbol for each program $\phi$ looks like $[\phi]A$. This is read as ``$A$ is true after program $\phi$ has run.''
+A new set of symbols to deal with program failure, concatenation of programs, and non--deterministic programs are introduced in addition to all
+of these modal symbols.
+
+\section{Provability*: when we can't have everything we want}
+The logic of provability allows us to connect modal logic to deep themes in mathematical logic, such as the soundness and completness of Peano arithmetic,
+nd the Incompleteness results. Here, the symbol $\logicbox \phi$ is read as ``$\phi$ is provable''. Under this interpretation, the 
+\textbf{L} axiom, named for M. L\:{o}b, takes on an interesting meaning. This axiom, which states that $\logicbox (\logicbox \phi \rightarrow
+\phi) \rightarrow \logicbox \phi$, seems to contain itself in a self--referential way. And indeed, it is this self--reference that gives power
+to the system of axioms containing it. Seemingly out of nowhere, the system \textbf{GL}, containing only the \textbf{K} and \textbf{L} axioms,
+gives us a route to the Incompleteness results.
+
+This idea of proving things about what is provable is quite magical, in the opinion of van Benthem. Indeed, this is why I named the project as I did.
+Even the mathematical proof theory of \textbf{GL} is subtle but rich, as it admits a cut--elimination proof in the appropriate sequent calculus.
+This is far from an insignificant consequence.
+
+\section{Until we meet again\dots}
+
+Please read these little ``blurbs'' on the different applications and
+let me know which of the applications you are interested in by Wednesday of the
+week. That way, I can begin to plan and find resources if it is not covered in van
+Benthem's book. In terms of the order in which you will receive your chosen application as the ``Application of the Week'',
+I will proceed in the order in which I receive emails from each of you. 
